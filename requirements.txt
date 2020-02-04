@@ -1,0 +1,4 @@
+PyYAML
+urllib3
+chromedriver-binary==80.0.3987.16
+selenium==3.141.0
