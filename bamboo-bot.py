@@ -11,15 +11,14 @@ driver = webdriver.Chrome(options=chromeOptions)
 
 # main function which logs into bamboo hr and clicks clock in/out
 def main():
-    #grab companydomain, user, pass from config.yml. This file is added to gitignore to avoid sharing unique creds
-    with open("config.yml",'r') as ymlfile:
+    # grab companydomain, user, pass from config.yml. This file is added to gitignore to avoid sharing unique creds
+    with open("config.yml", 'r') as ymlfile:
         cfg = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 
-    #sets bamboo_ vars to specific config.yml values
-    bamboo_url = 'https://' + cfg['companydomain'] + '.bamboohr.com/login.php?r=%2Fhome%2F'
+    # sets bamboo_ vars to specific config.yml values
+    bamboo_url = ('https://%s.bamboohr.com/login.php?r=/home/' % (cfg['companydomain'],))
     bamboo_user = cfg['user']
     bamboo_pass = cfg['pass']
-
 
     urllib3.disable_warnings()
 
